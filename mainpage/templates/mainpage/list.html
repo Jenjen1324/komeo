@@ -1,0 +1,22 @@
+{% extends "mainpage/index.html" %}
+{% load bootstrap3 staticfiles %}
+{% load render_table from django_tables2 %}
+
+{% block head %}
+<title>Projects</title>
+
+<link href="//www.fuelcdn.com/fuelux/3.13.0/css/fuelux.min.css" rel="stylesheet">
+<link href="{% static 'mainpage/css/table.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+{% render_table table 'table/table.html' %}
+{% endblock %}
+
+
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'mainpage/js/projectlist.js' %}" type="text/javascript"></script>
+{% endblock %}

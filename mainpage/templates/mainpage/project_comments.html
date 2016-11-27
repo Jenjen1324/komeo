@@ -1,0 +1,22 @@
+{% load bootstrap3 staticfiles thumbnail django_markdown %}
+{% for comment in comments %}
+<div class="media">
+	<div class="media-left">
+		<a href="{% url 'profile' comment.author.username %}">
+
+			<img heigth="64" width="64" class="media-object" src="{% if comment.author.reguser.profile_image.name %}{{ comment.author.reguser.profile_image | thumbnail_url:'comment' }}{% else %}{% static 'profile.png' %}{% endif %}" alt="{{ comment.author.username }}">
+			
+		</a>
+	</div>
+	<div class="media-body">
+		<h4 class="media-heading">{{ comment.author.username }}</h4>
+		{{ comment.message | markdown | striptags }}
+		{% if user.is_authenticated %}
+		<br>
+		<a class="btn btn-xs btn-default commentbtn" replyid="{{ comment.pk }}" replyname="{{ comment.author.username }}" role="button" href="#comment" value="Reply">Reply</a>
+		{% endif %}
+		{% include "mainpage/project_comments.html" with comments=comment.get_replies %}
+	</div>
+
+</div>
+{% endfor %}

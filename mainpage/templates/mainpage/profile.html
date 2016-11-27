@@ -1,0 +1,51 @@
+{% extends "mainpage/index.html" %}
+{% load bootstrap3 staticfiles %}
+{% load render_table from django_tables2 %}
+
+{% block head %}
+<title>{{ udata.user.username }}</title>
+<link href="{% static 'mainpage/css/table.css' %}" rel="stylesheet">
+<link href="{% static 'mainpage/css/profile.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="col-md-3">
+	<h3>{{ udata.user.username }}</h1>
+	<img class="thumbnail pimage" src="{% if udata.profile_image %}{{ udata.profile_image.url }}{% else %}{% static 'profile.png' %}{% endif %}" alt="{{ udata.user.username }}">
+	<table class="table">
+		<tr>
+			<td>Joined</td>
+			<td>{{ udata.date_registered }}</td>
+		</tr>
+		<tr>
+			<td>Maps</td>
+			<td>{{ udata.user.project_set.all | length }}</td>
+		</tr>
+    </table>
+    <h4>About</h4>
+    <pre>{{ udata.about }}</pre>
+    {% if isauthor %}
+    <br>
+    <h4>Edit</h4>
+    <form method="post" action="{% url 'profile' udata.user.username %}" role="form" enctype="multipart/form-data">
+    	{% csrf_token %}
+    	{% bootstrap_form form %}
+    	<input type="submit" class="btn btn-block btn-primary" value="Update">
+    
+    </form>
+    {% endif %}
+</div>
+<div class="col-md-9">
+	<h3>Maps</h2>
+	{% render_table table 'table/table.html' %}
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'mainpage/js/projectlist.js' %}" type="text/javascript"></script>
+{% endblock %}

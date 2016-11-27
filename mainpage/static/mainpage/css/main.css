@@ -1,0 +1,43 @@
+html, body {
+	height: 100%;
+}
+
+.login-form .btn {
+	width:100%;
+}
+
+
+.spacer {
+	height: 150px;
+}
+
+#wrap {
+	min-height: 100%;
+	margin-bottom: 20px;
+}
+
+#pagecontent {
+	overflow: auto;
+	padding-bottom: 60px;
+}
+
+.footer {
+	margin-bottom: 0px;
+	margin-top: -60px;
+	height: 60px;
+	position: relative;
+	clear: both;
+	bottom: 0;
+}
+
+.navbar {
+	border-radius: 0;
+}
+
+.markItUp {
+	width: 100% !important;
+}
+
+.markItUpEditor {
+	width: 100% !important;
+}

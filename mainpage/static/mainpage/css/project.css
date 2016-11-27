@@ -1,0 +1,22 @@
+#project-content img,
+.project-image {
+	max-width: 100%;
+	width: unset;
+	height: unset;
+}
+
+.btn-playstore {
+	background-color: #689f38;
+}
+
+.btn-playstore:hover {
+    background-color: #8bc34a;
+}
+
+.btn-appstore {
+    background-color: #333;
+}
+
+.btn-appstore:hover {
+    background-color: #333;
+}

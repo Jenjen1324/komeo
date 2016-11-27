@@ -1,0 +1,23 @@
+{% extends "mainpage/index.html" %}
+{% load bootstrap3 staticfiles %}
+
+{% block head %}
+<title>Password Reset</title>
+{% endblock %}
+
+{% block content %}
+
+<h1>Reset your Password</h1>
+
+<section class="col-md-6 well">
+
+<form action="" role="form" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	{% bootstrap_form form %}
+
+	<input type="submit" class="btn btn-primary" value="Submit">
+</form>
+
+</section>
+
+{% endblock %}

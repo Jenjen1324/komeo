@@ -1,0 +1,3 @@
+{% for a in authors %}
+	<a href="{% url 'profile' a.username %}">{{ a.username }}</a>
+{% endfor %}

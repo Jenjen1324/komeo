@@ -1,0 +1,17 @@
+#headerlogo {
+    height: 80px;
+}
+
+.item {
+    width: 100%;
+    height: 100%;
+}
+
+.item img {
+  width:100%;
+  height:100% !important;
+}
+
+.carousel-caption a {
+  color:#FFF;
+}
